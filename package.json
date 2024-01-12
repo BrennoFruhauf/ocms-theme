@@ -1,0 +1,112 @@
+{
+  "name": "ocms",
+  "displayName": "OCMS Theme",
+  "description": "One color, many shades theme collection.",
+  "publisher": "Brenno Fruhauf",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": {
+    "name": "Brenno Fruhauf",
+    "email": "brennofruhauf@outlook.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brennofruhauf/ocms-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/brennofruhauf/ocms-theme/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "one color",
+    "ocms",
+    "theme",
+    "light",
+    "dark",
+    "minimal",
+    ""
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "OCMS Red",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/red.json"
+      },
+      {
+        "label": "OCMS Folly",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/folly.json"
+      },
+      {
+        "label": "OCMS Magenta",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/magenta.json"
+      },
+      {
+        "label": "OCMS Purple",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/purple.json"
+      },
+      {
+        "label": "OCMS Dark Blue",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/dark-blue.json"
+      },
+      {
+        "label": "OCMS Blue",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/blue.json"
+      },
+      {
+        "label": "OCMS Cyan",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/cyan.json"
+      },
+      {
+        "label": "OCMS Sea Green",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/sea-green.json"
+      },
+      {
+        "label": "OCMS Green",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/green.json"
+      },
+      {
+        "label": "OCMS Yellow",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/yellow.json"
+      },
+      {
+        "label": "OCMS Orange",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/orange.json"
+      },
+      {
+        "label": "OCMS Clay",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark/clay.json"
+      }
+    ]
+  },
+  "scripts": {
+    "start": "tsnd --respawn --transpile-only src/index.ts"
+  },
+  "devDependencies": {
+    "@types/chroma-js": "^2.4.3",
+    "@types/lodash.merge": "^4.6.9",
+    "@types/node": "^20.10.8",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "chroma-js": "^2.4.2",
+    "lodash.merge": "^4.6.2"
+  }
+}

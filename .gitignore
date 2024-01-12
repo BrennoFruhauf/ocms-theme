@@ -1,0 +1,9 @@
+.vscode
+.vscode/**
+build
+build/**
+themes
+themes/**
+node_modules
+node_modules/**
+*.md
