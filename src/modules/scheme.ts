@@ -9,7 +9,7 @@ import base from '../base/base'
  * @param override Overrides for default scheme values.
  * @returns `JSON` with color scheme created.
  */
-const scheme = (colors: [string[], string[]], override: Scheme) => {
+const scheme = (colors: [string[], string[]], override: Scheme | null = null) => {
 	const draft: Scheme = base()
 
 	if (override != null) merge(draft, override)

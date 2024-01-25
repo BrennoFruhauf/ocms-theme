@@ -5,5 +5,5 @@ interface Theme {
   color: string
   scheme: scheme
   background?: string
-  override?: any
+  override?: Scheme
 }

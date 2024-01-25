@@ -7,7 +7,7 @@ import scheme from './scheme'
  * @param t `Object` with data to create theme.
  * @returns `JSON` with theme created.
  */
-const theme = (t: Theme) => {
+const theme = (t: Theme): Scheme => {
 	const colors = generatePalette(t)
 	return Object.assign(
 		{ name: t.name, type: t.scheme },
