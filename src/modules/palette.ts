@@ -66,7 +66,7 @@ const generateLightPalette = (theme: Theme, luminance: Luminance): [string[], st
 	
 	luminance.max = 0.5
 	luminance.step = luminance.max / luminance.amount
-	const luminanceValues = calculateLuminanceRange(theme.color, luminance, luminance.amount, 'DESC')
+	const luminanceValues = calculateLuminanceRange(theme.color, luminance, luminance.amount, 'ASC')
 
 	const colors: string[] = [chroma(theme.color).hex()]
 	colors.push(...generateColors(theme.color, luminanceValues))

@@ -1,22 +1,23 @@
 import chroma from 'chroma-js'
 import merge from 'lodash.merge'
 import base from '../base/base'
+import generatePalette from './palette'
 
 /**
  * Generates a scheme.
  *
- * @param colors A tuple containing arrays of colors.
- * @param override Overrides for default scheme values.
+ * @param theme `Object` with data to create theme.
  * @returns `JSON` with color scheme created.
  */
-const scheme = (colors: [string[], string[]], override: Scheme | null = null) => {
+const scheme = (theme: Theme) => {
+	const colors: [string[], string[]] = generatePalette(theme)
 	const draft: Scheme = base()
 
-	if (override != null) merge(draft, override)
+	if (theme.override != null) merge(draft, theme.override)
 
-	transform(draft, (key: string, value: Color) => colorize(colors, key, value))
+	transform(draft, (key: string, value: Color) => colorize(colors, key, value, theme.scheme))
 
-	return draft;
+	return draft
 }
 
 /**
@@ -26,13 +27,19 @@ const scheme = (colors: [string[], string[]], override: Scheme | null = null) =>
  * @param value Key value with color position and alpha.
  * @returns RRGGBBAA | RRGGBB color in the hex format.
  */
-const colorize = (colors: [string[], string[]], key: string, value: Color) => {
-	const color: string = keyToCheck.some(k => k === key) ? checkContrast(colors, value) : colors[value.array][value.position]
+const colorize = (colors: [string[], string[]], key: string, value: Color, scheme: scheme) => {
+	let color: string = colors[value.array][value.position]
+
+	if (scheme === 'light')
+		color = keyToCheck.some(k => k === key) ? colors[1][0] : color	
+	
+	color = keyToCheck.some(k => k === key) ? checkContrast(colors, color) : color
+
 	return chroma(color).alpha(value.alpha ?? 1).hex()
 }
 
 /**
- * Array containing predefined keys related to check color contrast.
+ * Array containing predefined keys related to check color.
  *
  * @type `String[]`
  */
@@ -54,7 +61,7 @@ const keyToCheck: string[] = [
  * @param v Color information.
  * @returns `String` with color suitable contrast based on the conditions.
  */
-const checkContrast = (c: [string[], string[]], v: Color): string => chroma.contrast(c[v.array][v.position], c[0][0]) < 2 ? c[1][0] : c[v.array][v.position]
+const checkContrast = (cs: [string[], string[]], c: string): string => chroma.contrast(c, cs[0][0]) < 2 ? cs[1][0] : c
 
 /**
  * Deep object transformer.
@@ -77,4 +84,4 @@ const transform = (object: Record<string, any>, transformation: Function) => {
 	return object
 }
 
-export default scheme;
+export default scheme

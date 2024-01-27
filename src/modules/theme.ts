@@ -1,4 +1,3 @@
-import generatePalette from './palette'
 import scheme from './scheme'
 
 /**
@@ -8,10 +7,9 @@ import scheme from './scheme'
  * @returns `JSON` with theme created.
  */
 const theme = (t: Theme): Scheme => {
-	const colors = generatePalette(t)
 	return Object.assign(
 		{ name: t.name, type: t.scheme },
-		scheme(colors, t.override)
+		scheme(t)
 	)
 }
 
