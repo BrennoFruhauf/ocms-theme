@@ -1,6 +1,7 @@
 .vscode/**
 .vscode-test/**
 .gitignore
+tsconfig.json
 node_modules/**
 package-lock.json
 src/**
