@@ -3,7 +3,7 @@
   "displayName": "OCMS Theme",
   "description": "One color, many shades theme collection for Visual Studio Code.",
   "icon": "assets/icon.png",
-  "publisher": "Brenno Fruhauf",
+  "publisher": "BrennoFruhauf",
   "version": "0.0.1",
   "license": "MIT",
   "author": {
@@ -148,7 +148,8 @@
     ]
   },
   "scripts": {
-    "start": "tsnd --respawn --transpile-only src/index.ts"
+    "start": "tsnd --respawn --transpile-only src/index.ts",
+    "build": "tsnd --transpile-only src/index.ts"
   },
   "devDependencies": {
     "@types/chroma-js": "^2.4.3",
